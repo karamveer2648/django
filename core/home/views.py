@@ -14,5 +14,10 @@ def home(request):
         {'name':'Alex','age':40},
         {'name':'Tom','age':45},
         {'name':'Jerry','age':50},
+        {'name':'Mickey','age':55},
     ]
     return render(request,"index.html", context={'peoples':peoples})
+def about(request):
+    return render(request,"about.html")
+def contact(request):
+    return render(request,"contact.html")

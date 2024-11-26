@@ -1,33 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Django Home Page</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        table, th, td {
-            border: 1px solid black;
-        }
-
-        th, td {
-            padding: 15px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-        </style>
-</head>
-<body>
-
-
-    <h1>Hi this is Karamveer    </h1>
+{% extends "base.html"%}
+{% block start %}
+   
+   <h1>Hi this is Karamveer    </h1>
     Hi this is Karamveer singh oberoi
     <table>
         <tr>
@@ -50,5 +24,18 @@
             </td>
         </tr>
         {% endfor %}
-</body>
-</html>
+
+        {% for people in peoples %}
+        <div class="container mt-5">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{people.name}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Subtitle</h6>
+                    <p class="card-text">This is a simple box created using Bootstrap's card component. Add your content here!</p>
+                    <a href="#" class="card-link">Learn More</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+{% endblock %}
