@@ -11,7 +11,6 @@ class Student(models.Model):
     city = models.CharField(max_length=100)
     email = models.EmailField()
     address =  models.TextField()
-    image = models.ImageField()
 
 
 class Teacher(models.Model):
