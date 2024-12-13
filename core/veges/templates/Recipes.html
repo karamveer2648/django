@@ -1,21 +1,25 @@
 {% extends "base.html"%}
 {% block start %}
-{% for recipe in recipes %}
-<div class="container mt-5">
-    <div class="card" style="width: 22rem;">
-        <img src="/media/{{recipe.image}}" alt="Recipe Image">
-
-        <div class="card-body">
-            <h5 class="card-title">Recipe Name:</h5> {{recipe.name}}
-            <p class="card-text"><strong>Category:</strong>{{recipe.category}}</p>
-            <p class="card-text"><strong>Ingredients:</strong>{{recipe.ingredients}}</p>             
-            <p class="card-text"><strong>Preparation Time:</strong>{{recipe.prep_time}}Minutes</p>
-            <p class="card-text"><strong>Preparation Guide:</strong> Follow the steps carefully to cook this delicious recipe.</p>
-            {{recipe.prep_guide}}
-            <p class="card-text"><small class="text-muted">Date Created:{{recipe.date_created}}</small></p>
-            <a href="#" class="btn btn-primary">View Full Recipe</a>
+<div class="container mt-4">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        {% for recipe in recipes %}
+        <div class="col">
+            <div class="card h-100">
+                <img src="/media/{{ recipe.image }}" class="card-img-top" alt="Recipe Image" style="height:200px; width:auto;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ recipe.name }}</h5>
+                    <p class="card-text"><strong>Ingredients:</strong> {{ recipe.ingredients }}</p>
+                    <p class="card-text"><strong>Preparation Time:</strong> {{ recipe.prep_time }}</p>
+                    <p class="card-text"><strong>Preparation Guide:</strong> {{ recipe.prep_guide }}</p>
+                    <p class="card-text"><strong>Category:</strong> {{ recipe.category }}</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Date Created: {{ recipe.date_created }}</small>
+                </div>
+            </div>
         </div>
+        {% endfor %}
     </div>
 </div>
-{% endfor %}
+  
 {% endblock %}
