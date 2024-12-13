@@ -26,3 +26,17 @@ class Teacher(models.Model):
     experience = models.FloatField()
     joining_date = models.DateField()
     phone = models.CharField(max_length=15)
+    phone = models.CharField(max_length=15)
+    phone = models.CharField(max_length=15)
+    
+class example(models.Model):
+    name = models.CharField(max_length=100)
+    age = models.IntegerField()
+    city = models.CharField(max_length=100)
+
+class Car(models.Model):
+    name = models.CharField(max_length=100)
+    year = models.IntegerField()
+    
+    def __str__(self):
+        return self.name

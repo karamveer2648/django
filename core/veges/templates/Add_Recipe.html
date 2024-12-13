@@ -1,0 +1,47 @@
+{% extends "base.html"%}
+{% block start %}
+<body>
+<div class="container mt=5">
+<form  method="post" enctype="multipart/form-data" class="col-6 mx-auto card p-3 shadow-lg">
+    {% csrf_token %}
+    <h1>Title</h1>
+    <div class="mb-3">
+        <label for="name" class="form-label">Name:</label>
+        <input type="text" id="name" name="name" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="ingredients" class="form-label">Ingredients:</label>
+        <textarea id="ingredients" name="ingredients" class="form-control" required></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label for="prep_time" class="form-label">Preparation Time:</label>
+        <input type="text" id="prep_time" name="prep_time" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="prep_guide" class="form-label">Preparation Guide:</label>
+        <textarea id="prep_guide" name="prep_guide" class="form-control" required></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label for="image" class="form-label">Image:</label>
+        <input type="file" id="image" name="image" class="form-control" accept="image/*">
+    </div>
+
+    <div class="mb-3">
+        <label for="category" class="form-label">Category:</label>
+        <input type="text" id="category" name="category" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="date_created" class="form-label">Date Created:</label>
+        <input type="date" id="date_created" name="date_created" class="form-control" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Recipe</button>
+</form>
+</div>
+</body>
+{% endblock %}
