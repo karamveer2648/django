@@ -30,8 +30,10 @@ urlpatterns = [
     path('contact/',contact, name="contacts"),
     path('admin/', admin.site.urls),
     path('Add_Recipe/',recipes, name="recipes"), 
-    path('Recipes/',listingrecipes, name="listrecipes"),
+    path('list/',listingrecipes, name="listrecipes"),
     path('',listrecipes, name="listrecipes"),
+    path('delete-recipe/<id>',delete_recipe),
+    path('update-recipe/<id>',update_recipe),
 
 ]
 if settings.DEBUG:
