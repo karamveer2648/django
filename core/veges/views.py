@@ -51,9 +51,14 @@ def delete_recipe(request, id):
     else:
         queryset.delete()
         return redirect('/list/')
+
+@login_required(login_url='/login/')
 def view_recipe(request, id):
     queryset = recipe.objects.get(id=id)
-    return render(request, 'view_recipe.html', {'recipe':queryset})
+    context = {'recipe':queryset}
+    return render(request, 'view_recipe.html', context)
+
+
 @login_required(login_url='/login/')
 def update_recipe(request, id):
     queryset = recipe.objects.get(id=id)
