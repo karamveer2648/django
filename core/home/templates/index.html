@@ -1,41 +1,60 @@
-{% extends "base.html"%}
+{% extends 'base_before_login.html' %}
+
 {% block start %}
-   
-   <h1>Hi this is Karamveer    </h1>
-    Hi this is Karamveer singh oberoi
-    <table>
-        <tr>
-            <th>Sr.No.</th>
-            <th>Name</th>
-            <th>Age</th>
-            <th>Can Vote?</th>
-        </tr>
-
-        {% for people in peoples %}
-        <tr>
-            <td>{{forloop.counter}}</td>
-            <td>{{people.name}}</td>
-            <td>{{people.age}}</td>
-            <td>{% if people.age >= 18  %}
-                👍
-                {% else %}
-                👎
-                {% endif %}
-            </td>
-        </tr>
-        {% endfor %}
-
-        {% for people in peoples %}
-        <div class="container mt-5">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">{{people.name}}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Subtitle</h6>
-                    <p class="card-text">This is a simple box created using Bootstrap's card component. Add your content here!</p>
-                    <a href="#" class="card-link">Learn More</a>
+<div class="container mt-5">
+    <h1 class="text-center display-4">Welcome to Recipe World</h1>
+    <div id="featuresCarousel" class="carousel slide mt-5" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="d-flex justify-content-center">
+                    <div class="card shadow-lg" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Login</h5>
+                            <p class="card-text">Securely login to access your personalized recipe collection.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="d-flex justify-content-center">
+                    <div class="card shadow-lg" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Logout</h5>
+                            <p class="card-text">Logout from your account to keep your data safe.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="d-flex justify-content-center">
+                    <div class="card shadow-lg" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Add Recipe</h5>
+                            <p class="card-text">Easily add new recipes to your collection.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="d-flex justify-content-center">
+                    <div class="card shadow-lg" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Edit Recipe</h5>
+                            <p class="card-text">Edit your existing recipes to keep them up to date.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        {% endfor %}
+        <a class="carousel-control-prev" href="#featuresCarousel" role="button" data-bs-slide="prev" style="color: black;">
+            <span class="carousel-control-prev-icon" style="color:black;" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#featuresCarousel" role="button" data-bs-slide="next" style="color: black;">
+            <span class="carousel-control-next-icon" style="color: black;" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
 
 {% endblock %}

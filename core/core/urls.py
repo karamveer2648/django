@@ -25,7 +25,7 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
-    path('',home, name="home"),
+    path('home/',home, name="home"),
     path('about/',about, name="about"),
     path('contact/',contact, name="contacts"),
     path('admin/', admin.site.urls),
@@ -35,7 +35,9 @@ urlpatterns = [
     path('delete-recipe/<id>',delete_recipe),
     path('update-recipe/<id>',update_recipe),
     path('register/',register, name="register"),
-    path('login/',login, name="login"),
+    path('login/',login_page, name="login"),
+    path('logout/',logout_user, name="logout"),
+    path('view-recipe/<id>',view_recipe),
 
 ]
 if settings.DEBUG:

@@ -1,35 +1,89 @@
-{% extends "base.html"%}
+{% extends "base_after_login.html"%}
 {% block start %}
+
 <div class="container mt-5">
     <h1>Recipes</h1>
-<form class="d-flex mb-4" method="GET">
-    <input class="form-control form-control-sm me-2" type="search" placeholder="Search" aria-label="Search" name="q">
-    <button class="btn btn-outline-success btn-sm" type="submit">Search</button>
-</form>
+    <form class="d-flex mb-4" method="GET">
+        <input class="form-control form-control-sm me-2" type="search" placeholder="Search" aria-label="Search" name="q">
+        <button class="btn btn-outline-success btn-sm" type="submit">Search</button>
+    </form>
 </div>
+{% if messages %}
+<div class="container mt-4" style="border: 1px solid #dee2e6; border-radius: 0.25rem;">
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
 <div class="container mt-4">
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
         {% for recipe in recipes %}
         <div class="col">
-            <div class="card h-100">
-                <img src="/media/{{ recipe.image }}" class="card-img-top" alt="Recipe Image" style="height:200px; width:auto;">
+            <div class="card h-100 shadow-sm mb-4">
+                <img src="/media/{{ recipe.image }}" class="card-img-top" alt="Recipe Image" style="height:200px; width:auto; object-fit:cover;">
                 <div class="card-body">
                     <h5 class="card-title">{{ recipe.name }}</h5>
                     <p class="card-text"><strong>Ingredients:</strong> {{ recipe.ingredients }}</p>
                     <p class="card-text"><strong>Preparation Time:</strong> {{ recipe.prep_time }}</p>
                     <p class="card-text"><strong>Preparation Guide:</strong> {{ recipe.prep_guide }}</p>
                     <p class="card-text"><strong>Category:</strong> {{ recipe.category }}</p>
+                    <p class="card-text"><strong>Created By:</strong> {{ recipe.user.first_name }}</p>
                 </div>
-                <div class="card-footer">
-                    <small class="text-muted">Date Created: {{ recipe.date_created }}</small>
-                    
+                <div class="card-footer d-flex justify-content-between align-items-center">
+                    <small class="text-muted">Date Created: {{ recipe.date_created }} {{ recipe.user.first_name }}</small>
+                    <div>
+                        <a href="/view-recipe/{{ recipe.id }}" class="btn btn-primary btn-sm me-2">View</a>
+                        <a href="/delete-recipe/{{ recipe.id }}" class="btn btn-danger btn-sm me-2">Delete</a>
+                        <a href="/update-recipe/{{ recipe.id }}" class="btn btn-primary btn-sm">Edit</a>
+                    </div>
                 </div>
-                <a href="/delete-recipe/{{ recipe.id }}" class="btn btn-danger" style="height: 40px;width: 100px;align-self: center; margin:3px;">Delete</a>
-                <a href="/update-recipe/{{ recipe.id }}" class="btn btn-primary" style="height: 40px;width: 100px;align-self: center;">Update</a>
             </div>
         </div>
         {% endfor %}
     </div>
 </div>
+
+<style>
+    body {
+        background-color: #f0f8ff; /* AliceBlue background */
+    }
+    
+    .card {
+        background-color: #ffffff; /* White background for the card */
+    }
+    
+    .btn-primary {
+        background-color: #007bff; /* Bootstrap primary blue */
+        border-color: #007bff; /* Bootstrap primary blue border */
+    }
+    
+    .btn-primary:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+        border-color: #0056b3; /* Darker blue border on hover */
+    }
+
+    .alert-success {
+        background-color: #d4edda; /* Light green background */
+        color: #155724; /* Dark green text */
+    }
+
+    .alert-danger {
+        background-color: #f8d7da; /* Light red background */
+        color: #721c24; /* Dark red text */
+    }
+
+    .alert-warning {
+        background-color: #fff3cd; /* Light yellow background */
+        color: #856404; /* Dark yellow text */
+    }
+
+    .alert-info {
+        background-color: #d1ecf1; /* Light blue background */
+        color: #0c5460; /* Dark blue text */
+    }
+</style>
   
 {% endblock %}

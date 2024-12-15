@@ -1,0 +1,41 @@
+{% extends "base.html"%}
+{% block start %}
+   
+   <h1>Hi this is Karamveer    </h1>
+    Hi this is Karamveer singh oberoi
+    <table>
+        <tr>
+            <th>Sr.No.</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Can Vote?</th>
+        </tr>
+
+        {% for people in peoples %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{people.name}}</td>
+            <td>{{people.age}}</td>
+            <td>{% if people.age >= 18  %}
+                👍
+                {% else %}
+                👎
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+
+        {% for people in peoples %}
+        <div class="container mt-5">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{people.name}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Subtitle</h6>
+                    <p class="card-text">This is a simple box created using Bootstrap's card component. Add your content here!</p>
+                    <a href="#" class="card-link">Learn More</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+{% endblock %}
