@@ -54,9 +54,16 @@ def delete_recipe(request, id):
 
 @login_required(login_url='/login/')
 def view_recipe(request, id):
-    queryset = recipe.objects.get(id=id)
-    context = {'recipe':queryset}
-    return render(request, 'view_recipe.html', context)
+    try:
+        queryset = recipe.objects.get(id=id)
+        print("Recipe found:", queryset.name)
+        context = {'recipe': queryset}
+        return render(request, 'view_recipe.html', context)
+    except recipe.DoesNotExist:
+        print("Recipe not found.")
+        messages.error(request, "Recipe not found.")
+        return redirect('/list/')
+
 
 
 @login_required(login_url='/login/')

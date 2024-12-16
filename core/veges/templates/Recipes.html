@@ -1,4 +1,4 @@
-{% extends "base_after_login.html"%}
+{% extends "base.html"%}
 {% block start %}
 
 <div class="container mt-5">
@@ -25,7 +25,7 @@
             <div class="card h-100 shadow-sm mb-4">
                 <img src="/media/{{ recipe.image }}" class="card-img-top" alt="Recipe Image" style="height:200px; width:auto; object-fit:cover;">
                 <div class="card-body">
-                    <h5 class="card-title">{{ recipe.name }}</h5>
+                    <h5 class="card-title"> z</h5>
                     <p class="card-text"><strong>Ingredients:</strong> {{ recipe.ingredients }}</p>
                     <p class="card-text"><strong>Preparation Time:</strong> {{ recipe.prep_time }}</p>
                     <p class="card-text"><strong>Preparation Guide:</strong> {{ recipe.prep_guide }}</p>
@@ -35,7 +35,7 @@
                 <div class="card-footer d-flex justify-content-between align-items-center">
                     <small class="text-muted">Date Created: {{ recipe.date_created }} {{ recipe.user.first_name }}</small>
                     <div>
-                        <a href="/view-recipe/{{ recipe.id }}" class="btn btn-primary btn-sm me-2">View</a>
+                        <a href="/view-recipe/{{ recipe.id }}" class="btn btn-primary btn-sm me-2" name="id">View</a>
                         <a href="/delete-recipe/{{ recipe.id }}" class="btn btn-danger btn-sm me-2">Delete</a>
                         <a href="/update-recipe/{{ recipe.id }}" class="btn btn-primary btn-sm">Edit</a>
                     </div>

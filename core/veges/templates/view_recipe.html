@@ -1,10 +1,16 @@
-{% extends 'base_after_login.html' %}
+{% extends 'base.html' %}
 
-{% block content %}
-
-
+{% block start %}
 <div class="container mt-5">
-    <h1>View Recipe</h1>
-    {{recipe.name}}
+    <h1 class="text-primary">View Recipe</h1>
+    <div class="card p-3 shadow-sm">
+        <p><strong>Name:</strong> <span class="text-success">{{ recipe.name }}</span></p>
+        <img src="/media/{{ recipe.image }}" class="card-img-top mb-3" alt="Recipe Image" style="height:200px; width:auto; object-fit:cover;">
+        <p><strong>Ingredients:</strong> <span class="text-info">{{ recipe.ingredients }}</span></p>
+        <p><strong>Preparation Time:</strong> <span class="text-warning">{{ recipe.prep_time }}</span></p>
+        <p><strong>Preparation Guide:</strong> <span class="text-danger">{{ recipe.prep_guide }}</span></p>
+        <p><strong>Category:</strong> <span class="text-secondary">{{ recipe.category }}</span></p>
+        <p><strong>Submitted by:</strong> <span class="text-muted">{{ recipe.user.first_name }}</span></p>
+    </div>
 </div>
 {% endblock %}
