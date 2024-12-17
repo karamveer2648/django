@@ -25,13 +25,8 @@
             <div class="card h-100 shadow-sm mb-4">
                 <img src="/media/{{ recipe.image }}" class="card-img-top" alt="Recipe Image" style="height:200px; width:auto; object-fit:cover;">
                 <div class="card-body">
-                    <h5 class="card-title"> z</h5>
-                    <p class="card-text"><strong>Ingredients:</strong> {{ recipe.ingredients }}</p>
-                    <p class="card-text"><strong>Preparation Time:</strong> {{ recipe.prep_time }}</p>
-                    <p class="card-text"><strong>Preparation Guide:</strong> {{ recipe.prep_guide }}</p>
-                    <p class="card-text"><strong>Category:</strong> {{ recipe.category }}</p>
-                    <p class="card-text"><strong>Created By:</strong> {{ recipe.user.first_name }}</p>
-                </div>
+                    <h5 class="card-title">{{ recipe.name }}</h5>
+                    </div>
                 <div class="card-footer d-flex justify-content-between align-items-center">
                     <small class="text-muted">Date Created: {{ recipe.date_created }} {{ recipe.user.first_name }}</small>
                     <div>

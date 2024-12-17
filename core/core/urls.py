@@ -38,6 +38,7 @@ urlpatterns = [
     path('login/',login_page, name="login"),
     path('logout/',logout_user, name="logout"),
     path('view-recipe/<id>',view_recipe),
+    path('test/',test, name="test"),
 
 ]
 if settings.DEBUG:

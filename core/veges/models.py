@@ -10,6 +10,6 @@ class recipe(models.Model):
     image = models.ImageField(upload_to='recipe_images/')
     category = models.CharField(max_length=100)
     date_created = models.DateTimeField(auto_now_add=True)
-    
+    views = models.IntegerField(default=0)
     def __str__(self):
         return self.name    
